@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
 import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -19,13 +20,14 @@ public class IssuesController {
         this.issueRepository = issueRepository;
     }
 
-    @GetMapping("/issues")
+    @GetMapping("/issues" )
     public List<Issue> getAllIssues(){
         return issueRepository.findAll();
     }
 
     @PostMapping("/issues")
     public Issue createIssue(@RequestBody Issue issue){
+
         return issueRepository.save(issue);
     }
 
@@ -36,7 +38,7 @@ public class IssuesController {
         return ResponseEntity.ok(issue);
     }
 
-    @PutMapping("/issues/{id}")
+    @RequestMapping(value = "/issues/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Issue> updateIssue(@PathVariable Integer id,@RequestBody Issue issueDetails){
         Issue issue = issueRepository.findById(id).orElseThrow(()->
                 new ResourceNotFoundException("Issue not exist with id: " + id));
