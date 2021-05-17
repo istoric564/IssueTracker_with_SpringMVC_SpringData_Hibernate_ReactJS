@@ -8,7 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1/")
@@ -51,5 +54,15 @@ public class IssuesController {
         issue.setTitle(issueDetails.getTitle());
         Issue updateIssue = issueRepository.save(issue);
         return ResponseEntity.ok(updateIssue);
+    }
+    @DeleteMapping("/issues/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteIssue(@PathVariable Integer id){
+        Issue issue = issueRepository.findById(id).orElseThrow(()->
+                new ResourceNotFoundException("Issue not exist with id: " + id));
+
+        issueRepository.delete(issue);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(response);
     }
 }

@@ -31,7 +31,7 @@ public class Issue {
     private String issueSummary;
 
     @Column(name = "status")
-    private IssueEnums status;
+    private String status;
 
     @Column(name = "title")
     private String title;
