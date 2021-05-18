@@ -17,7 +17,7 @@ public class Issue {
 
     @NotNull
     @Column(name = "created_by")
-    private Integer createdBy;
+    private String createdBy;
 
     @Column(name = "created_on")
     @NotNull
