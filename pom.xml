@@ -10,9 +10,14 @@
     </parent>
     <groupId>com.istoric564</groupId>
     <artifactId>springboot-backend</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <name>springboot-backend</name>
-    <description>Demo project for Spring Boot</description>
+    <packaging>jar</packaging>
+    <description>This web application allows you to create delete view and edit any bugs issues, etc.
+        Developed on the basis of the technical documentation of Spring Boot, Spring Data and Spring MVC.
+        Hibernate is also used as a PostgreSQL database.
+        React JS is used as the front part
+    </description>
     <properties>
         <java.version>11</java.version>
     </properties>

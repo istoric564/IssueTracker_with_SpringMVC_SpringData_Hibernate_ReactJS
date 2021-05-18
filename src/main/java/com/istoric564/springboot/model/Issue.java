@@ -1,11 +1,13 @@
 package com.istoric564.springboot.model;
 
-import com.istoric564.springboot.model.enums.IssueEnums;
+
 import com.sun.istack.NotNull;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+
+
 @Data
 @Entity
 @Table(name = "issues")
